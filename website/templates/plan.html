@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block title %} Start Your Event {% endblock %}
+
+{% block content %} 
+<form method="POST">
+    <h3 align="center">Make your event</h3>
+    <div class="form-group">
+      <label for="sport">Sport</label>
+      <input
+        type="text"
+        class="form-control"
+        id="sport"
+        name="sport"
+        placeholder="Enter sport"
+      />
+    </div>
+    <div class="form-group">
+      <label for="time">Date and time</label>
+      <input
+        type="datetime-local"
+        class="form-control"
+        id="date"
+        name="date"
+        placeholder="Enter date and time"
+      />
+    </div>
+    <div class="form-group">
+        <label for="time">Location</label>
+        <input
+          type="text"
+          class="form-control"
+          id="location"
+          name="location"
+          placeholder="Enter location"
+        />
+      </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+{% endblock %}

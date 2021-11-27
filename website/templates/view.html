@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block title %} On-going Events {% endblock %}
+
+{% block content %} 
+<h1 align="center">Posts</h1>
+<ul class="list-group list-group-flush" id="posts">
+  {% for post in all_post %}
+  <li class="list-group-item">
+    Sport: {{ post.sport }} <br>
+    Date and time: {{ post.date}} <br>
+    Location: {{ post.location}} <br>
+    Number of people: {{ post.participant_number }}
+    {% if user.id != post.creater_id %}
+    <form method="POST">
+      <div align="center">
+        <input type="hidden" id="user_id" name="user_id" value={{ user.id }} >
+        <input type="hidden" id="post_id" name="post_id" value={{ post.id }} >
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+      </div>
+    </form>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
