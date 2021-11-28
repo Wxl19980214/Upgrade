@@ -24,7 +24,7 @@ a {
 a:hover,
 a:active,
 a:focus {
-    color: #92baee;
+    color: #F7CAC9;
     outline: none;
     text-decoration: none;
 }
@@ -41,7 +41,7 @@ a:focus {
 .back-to-top {
     position: fixed;
     display: none;
-    background: #92baee;
+    background: #F7CAC9;
     width: 44px;
     height: 44px;
     text-align: center;
@@ -49,7 +49,7 @@ a:focus {
     font-size: 22px;
     right: 15px;
     bottom: 15px;
-    transition: background 0.5s;
+    /*transition: background 0.5s;*/
     z-index: 9;
 }
 
@@ -58,7 +58,7 @@ a:focus {
 }
 
 .back-to-top:hover i {
-    color: #92baee;
+    color: #F7CAC9;
 }
 
 .back-to-top i {
@@ -158,111 +158,6 @@ a:focus {
 }
 
 
-/**********************************/
-/*********** Nav Bar CSS **********/
-/**********************************/
-.navbar {
-    position: relative;
-    transition: .5s;
-    z-index: 999;
-}
-
-.navbar.nav-sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
-}
-
-.navbar .navbar-brand {
-    margin: 0;
-    color: #ffffff;
-    font-size: 45px;
-    line-height: 0px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: .5s;
-    
-}
-
-.navbar .navbar-brand span {
-    color: #343148;
-    text-transform: lowercase;
-    transition: .5s;
-}
-
-.navbar.nav-sticky .navbar-brand span {
-    color: #ffffff;
-}
-
-.navbar .navbar-brand img {
-    max-width: 100%;
-    max-height: 40px;
-}
-
-.navbar-dark .navbar-nav .nav-link,
-.navbar-dark .navbar-nav .nav-link:focus,
-.navbar-dark .navbar-nav .nav-link:hover,
-.navbar-dark .navbar-nav .nav-link.active {
-    padding: 10px 10px 8px 10px;
-    color: #ffffff;
-}
-
-.navbar-dark .navbar-nav .nav-link:hover,
-.navbar-dark .navbar-nav .nav-link.active {
-    background: rgba(256, 256, 256, .1);
-    transition: none;
-}
-
-.navbar .dropdown-menu {
-    margin-top: 0;
-    border: 0;
-    border-radius: 0;
-    background: #f8f9fa;
-}
-
-@media (min-width: 992px) {
-    .navbar {
-        position: absolute;
-        width: 100%;
-        top: 35px;
-        padding: 20px 60px;
-        background: rgba(0, 0, 0, .1) !important;
-        z-index: 9;
-    }
-    
-    .navbar.nav-sticky {
-        padding: 10px 60px;
-        background: #343148 !important;
-    }
-    
-    .navbar a.nav-link {
-        padding: 8px 15px;
-        font-size: 14px;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-    }
-}
-
-@media (max-width: 991.98px) {   
-    .navbar {
-        padding: 15px;
-        background: #343148 !important;
-    }
-    
-    .navbar .navbar-brand span {
-        color: #ffffff;
-    }
-    
-    .navbar a.nav-link {
-        padding: 5px;
-    }
-    
-    .navbar .dropdown-menu {
-        box-shadow: none;
-    }
-}
 
 
 /*******************************/
@@ -273,7 +168,7 @@ a:focus {
     width: 100%;
     margin-bottom: 45px;
     padding: 90px 0;
-    background: #b2cae9;
+    background: #F7CAC9;
     /*background-image: url(img/north.jpg);*/
     overflow: hidden;
 }
@@ -443,6 +338,51 @@ a:focus {
     }
 }
 
+
+/*******************************/
+/******* Section Header ********/
+/*******************************/
+.section-header {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 45px;
+}
+
+.section-header p {
+    display: inline-block;
+    margin: 0 30px;
+    margin-bottom: 5px;
+    padding: 0 10px;
+    position: relative;
+    font-size: 16px;
+    font-weight: 600;
+    background: #ffffff;
+}
+
+.section-header p::after {
+    position: absolute;
+    content: "";
+    height: 2px;
+    top: 11px;
+    right: -30px;
+    left: -30px;
+    background: #F7CAC9;
+    z-index: -1;
+}
+
+.section-header h2 {
+    margin: 0;
+    position: relative;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+@media (max-width: 767.98px) {
+    .section-header h2 {
+        font-size: 30px;
+    }
+}
 
 
 /*******************************/
@@ -734,7 +674,137 @@ a:focus {
     color: #eb699e;
 }
 
+/*******************************/
+/********* donation CSS *********/
+/*******************************/
+.donation {
+    position: relative;
+    width: 100%;
+    padding: 45px 0 15px 0;
+}
 
+.donation .price-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.donation .price-header,
+.donation .price-body,
+.donation .price-footer {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.donation .price-header {
+    padding: 30px;
+    background: #F7CAC9;
+    color: #343148;
+}
+
+.donation .price-item.featured-item .price-header {
+    background: #343148;
+    color: #F7CAC9;
+}
+
+.donation .price-status {
+    margin-top: -30px;
+    text-align: right;
+}
+
+.donation .price-status span {
+    position: relative;
+    display: inline-block;
+    height: 30px;
+    right: -30px;
+    padding: 7px 10px;
+    text-align: center;
+    color: #343148;
+    font-size: 14px;
+    line-height: 14px;
+    background: #F7CAC9;
+}
+
+.donation .price-title h2 {
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.donation .price-prices h2 {
+    font-size: 45px;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+.donation .price-prices h2 small {
+    position: absolute;
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 9px;
+    margin-left: -12px;
+}
+
+.donation .price-prices h2 span {
+    margin-left: 1px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.donation .price-item.featured-item h2 {
+    color: #F7CAC9;
+}
+
+.donation .price-body {
+    padding: 25px 0 20px 0;
+    border: 1px solid rgba(0, 0, 0, .07);
+    border-bottom: none;
+}
+
+.donation .price-description ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.price .price-description ul li {
+    padding: 7px;
+    border-bottom: 1px solid rgba(0, 0, 0, .07);
+}
+
+.donation .price-description ul li:last-child {
+    border: none;
+}
+
+.donation .price-action {
+    border: 1px solid rgba(0, 0, 0, .07);
+    border-top: none;
+}
+
+.donation .price-action a.btn {
+    margin-bottom: 30px;
+    padding: 12px 20px;
+    color: #343148;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 0;
+    background: #F7CAC9;
+    transition: .3s;
+}
+
+.donation .price-action a:hover,
+.donation .price-item.featured-item .price-action a {
+    color: #F7CAC9;
+    background: #343148;
+}
+
+.donation .price-item.featured-item .price-action a:hover {
+    color: #343148;
+    background: #F7CAC9;
+}
 
 /*past events*/
 
@@ -797,3 +867,5 @@ a:focus {
     clear: both;
     display: table;
   }
+
+
