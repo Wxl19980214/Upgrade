@@ -63,6 +63,9 @@ def sign_up():
             flash('Account created!', category='success')
             return redirect(url_for('views.home'))
 
+    return render_template("sign_up.html", user=current_user)
+
+
 # TODO: write create_post and participate functions
 # @auth.route('/create_post', methods=['GET', 'POST'])
 # @login_required
@@ -71,7 +74,3 @@ def sign_up():
 # @auth.route('/participate', methods=['GET', 'POST'])
 # @login_required
 # def participate():
-
-
-
-    return render_template("sign_up.html", user=current_user)
