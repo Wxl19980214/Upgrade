@@ -1,6 +1,10 @@
 {% extends "base.html" %} {% block title %} Upgrade {% endblock %}
 
 {% block content %} 
+
+
+<script src='/static/index.js'></script>
+<script src='/static/qrcodejs.js'></script>
 <link href="/static/index.css" rel="stylesheet">
 <class header>
     <div class="header">
@@ -15,7 +19,12 @@
                         <div class="header-btn">
                             <a class="btn" href="">Join Now</a>
                             <a class="btn" href="">Contact Us</a>
+                            <a class="btn" id = "qrbutton" onClick='showQrcode()' value="http://127.0.0.1:5000/home">Share</a>
+                            
                         </div>
+                        
+                        <div id="qrcode" style="display:none;"><br>
+                        <br></div>
                     </div>
                 </div>
             </div>
@@ -49,12 +58,14 @@
                     <b>
                        Sign up now:
                     </b>
+                    <br>
                     <a class="btn" href="">Sign Up</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<br>
 
 
 <div class = "past_event" style="margin-top: 40px; margin-bottom: 40px;">
