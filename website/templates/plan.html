@@ -14,6 +14,18 @@
       />
     </div>
     <div class="form-group">
+      <label for="description">Maximum Participants</label>
+      <input
+        type="number"
+        class="form-control"
+        id="max_participants"
+        name="max_participants"
+        value="10"
+
+      />
+    </div>
+
+    <div class="form-group">
       <label for="time">Date and time</label>
       <input
         type="datetime-local"
@@ -32,7 +44,21 @@
           name="location"
           placeholder="Enter location"
         />
-      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input
+        type="text"
+        class="form-control"
+        id="description"
+        name="description"
+        placeholder="Briefly describe your post!(optional)"
+      />
+    </div>
+
+
+
     <br />
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>

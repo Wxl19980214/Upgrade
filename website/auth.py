@@ -66,11 +66,4 @@ def sign_up():
     return render_template("sign_up.html", user=current_user)
 
 
-# TODO: write create_post and participate functions
-# @auth.route('/create_post', methods=['GET', 'POST'])
-# @login_required
-# def create_post():
 
-# @auth.route('/participate', methods=['GET', 'POST'])
-# @login_required
-# def participate():
