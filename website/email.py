@@ -34,7 +34,6 @@ def email_job():
     now = datetime.now()
     for post in posts:
         if now+timedelta(hours=24) >= post.date:
-            print('testing where am i')
             participants = PostParticipant.query.filter_by(post_id=post.id).all()
             plist = []
             for p in participants:
@@ -43,7 +42,6 @@ def email_job():
 
             subject = "Upgrade Reminder"
             message = 'Non-reply:\n This is just a friendly reminder that you registered ' + post.sport + ' game at ' + post.location + ' will happen in 24 hours!'
-            print(message)
-            # send_email(plist,subject,message)
+            send_email(plist,subject,message)
     
-    print('I am working...')
+    
