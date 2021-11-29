@@ -18,7 +18,7 @@
                         </p>
                         <div class="header-btn">
                             <a class="btn" href="">Join Now</a>
-                            <a class="btn" href="">Contact Us</a>
+                            <a class="btn" onClick="document.getElementById('cp').scrollIntoView()"> Contact Us</a>
                             <a class="btn" id = "qrbutton" onClick='showQrcode()' value="http://127.0.0.1:5000/home">Share</a>
                             
                         </div>
@@ -50,16 +50,13 @@
                 </div>
                 <div class="about-text">
                     <p>
-                        Upgrade is an awesome website that you can find friends who have same exerciese interst as you.
+                        Upgrade is an awesome website that you can find friends who have the same exerciese interest as you.
                     </p>
                     <p>
-                       By the way, if you want to post anything on our website, please sign up an account.
+                       Wanna keep up with everybody else? <b> Sign up now: </b>
                     </p>
-                    <b>
-                       Sign up now:
-                    </b>
-                    <br>
-                    <a class="btn" href="">Sign Up</a>
+                    
+                    <a class="btn" onclick="location.href='/sign-up'">Sign Up</a>
                 </div>
             </div>
         </div>
@@ -202,11 +199,12 @@
              </div>
           </div>
        </div>
-       <div class="copyright">
+       <div id="cp" class="copyright">
           <div class="container">
              <div class="row">
                 <div class="col-md-12">
                    <p>© Design by Upgrade</p>
+                   <p>E-Mail: upgradematchweb@gmail.com</p>
                 </div>
              </div>
           </div>

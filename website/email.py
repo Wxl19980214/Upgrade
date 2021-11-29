@@ -1,12 +1,10 @@
-from . import db
+import smtplib
+
+from datetime import datetime, timedelta
 from .models import Post
 from .models import PostParticipant
 from .models import User
-import smtplib
-from datetime import datetime
 
-
-now = datetime.now()
 
 def send_email(recipient, subject, body):
     print("sending email")
@@ -30,3 +28,22 @@ def send_email(recipient, subject, body):
         print ('successfully sent the mail')
     except:
         print ("failed to send mail")
+
+def email_job():
+    posts = Post.query.all()
+    now = datetime.now()
+    for post in posts:
+        if now+timedelta(hours=24) >= post.date:
+            print('testing where am i')
+            participants = PostParticipant.query.filter_by(post_id=post.id).all()
+            plist = []
+            for p in participants:
+                user = User.query.filter_by(id=p.participant_id).first()
+                plist.append(user.email)
+
+            subject = "Upgrade Reminder"
+            message = 'Non-reply:\n This is just a friendly reminder that you registered ' + post.sport + ' game at ' + post.location + ' will happen in 24 hours!'
+            print(message)
+            # send_email(plist,subject,message)
+    
+    print('I am working...')
