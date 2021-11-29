@@ -2,10 +2,13 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
-
+from apscheduler.schedulers.background import BackgroundScheduler
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
+
+def test_job():
+    print('I am working...')
 
 def create_app():
     app = Flask(__name__)
@@ -13,6 +16,11 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
 
+    '''
+    scheduler = BackgroundScheduler()
+    job = scheduler.add_job(test_job, 'interval', seconds=1)
+    scheduler.start()
+    '''
 
     from .views import views
     from .auth import auth

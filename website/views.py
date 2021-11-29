@@ -1,6 +1,8 @@
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask.scaffold import _matching_loader_thinks_module_is_package
 from flask_login import login_required, current_user
+
+from website.email import send_email
 from .models import Post
 from .models import PostParticipant
 from datetime import datetime
@@ -71,5 +73,9 @@ def plan_event():
         db.session.add(new_pp)
         db.session.commit()
         flash('Event Posted!', category='success')
+        # sending email
+        subject = sport + ' Event Post!'
+        message = 'You have successfully post this on upgrade website'
+        send_email(current_user.email,subject, message)
 
     return render_template("plan.html", user=current_user)
