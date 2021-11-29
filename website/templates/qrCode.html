@@ -1,0 +1,24 @@
+<div id="qrcode"></div>
+
+<input id="text" type="text" value="" /><br>
+<div id="qrcode"></div>
+
+
+
+
+<script type="text/javascript">
+    var qrcode = new QRCode("qrcode");
+
+    function makeCode () {      
+        var elText = document.getElementById("text");
+        
+        if (!elText.value) {
+            alert("Input a text");
+            elText.focus();
+            return;
+        }
+        
+        qrcode.makeCode(elText.value);
+    }
+
+</script>
