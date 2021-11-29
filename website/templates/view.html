@@ -8,15 +8,24 @@
     Sport: {{ post.sport }} <br>
     Date and time: {{ post.date}} <br>
     Location: {{ post.location}} <br>
+    Desciption: {{ post.description}} <br>
     Number of people: {{ post.participant_number }}
     {% if user.id != post.creater_id %}
     <form method="POST">
       <div align="center">
         <input type="hidden" id="user_id" name="user_id" value={{ user.id }} >
         <input type="hidden" id="post_id" name="post_id" value={{ post.id }} >
-        <button type="submit" class="btn btn-primary">Sign Up</button>
+        <button type="submit" class="btn btn-primary">Join</button>
+        <button type="submit" class="btn btn-primary">Share</button>
       </div>
     </form>
+    {% endif %}
+    {% if user.id == post.creater_id %}
+    <div align="center">
+      <button type="submit" class="btn btn-primary">Edit</button>
+      <button type="submit" class="btn btn-primary">Share</button>
+    </div>
+
     {% endif %}
   </li>
   {% endfor %}

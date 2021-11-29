@@ -10,6 +10,8 @@ class Post(db.Model):
     location = db.Column(db.String(10000))
     creater_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     participant_number = db.Column(db.Integer)
+    description = db.Column(db.String(10000))
+    max_participants = db.Column(db.Integer)
 
 class PostParticipant(db.Model):
     id = db.Column(db.Integer, primary_key=True)

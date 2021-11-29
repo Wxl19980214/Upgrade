@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, flash
 from flask.helpers import url_for
 from werkzeug.utils import redirect
 from .models import User
+from .models import Post
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
@@ -61,7 +62,8 @@ def sign_up():
             login_user(new_user, remember=True)
             flash('Account created!', category='success')
             return redirect(url_for('views.home'))
-            
-
 
     return render_template("sign_up.html", user=current_user)
+
+
+
