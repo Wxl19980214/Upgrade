@@ -26,28 +26,27 @@
         <input type="hidden" id="user_id" name="user_id" value={{ user.id }} >
         <input type="hidden" id="post_id" name="post_id" value={{ post.id }} >
         <button type="submit" class="btn btn-primary">Join</button>
-        <button type="submit" class="btn btn-primary" onclick = 'showQrcode2()'>Share</button>
-        <div id="qrcode" style="display:none;"><br>
-          <br></div>
+        <button type="button" class="btn btn-primary" onclick = 'showQrcode2({{post.id}})'>Share</button>
+        <div id="qrcode" style="display:none;">
+          <br>
+          <br>
+        </div>
       </div>
     </form>
     {% endif %}
     {% if user.id == post.creater_id and user.is_authenticated %}
     <div align="center">
-<!--      <button type="submit" class="btn btn-primary" href="/post/{{post.id}}">Edit</button>-->
-    <div>
-      <a type="submit" class="btn btn-primary" href="/post/{{post.id}}">Edit</a>
-      
-        <button type="submit" class="btn btn-primary" onclick = 'showQrcode2({{post.id}})'>Share</button>
-        
+      <div>
+          <a type="submit" class="btn btn-primary" href="/post/{{post.id}}">Edit</a>
+          <button type="button" class="btn btn-primary" onclick = 'showQrcode2({{post.id}})'>Share</button>  
       </div>
     </div>
-
     {% endif %}
   </li>
-
   {% endfor %}
 </ul>
-<div id="qrcode" style="display:none; align = middle"><br>
-  <br></div>
+
+<div id="qrcode" style="display:none; align: middle"><br>
+  <br>
+</div>
 {% endblock %}

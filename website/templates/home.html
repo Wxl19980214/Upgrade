@@ -8,7 +8,7 @@
 <script src='/static/qrcodejs.js'></script>
 <link href="/static/index.css" rel="stylesheet">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
       <!-- Optional theme -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
       <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -208,15 +208,18 @@
         <div class="footer">
            <div class="container">
               <div class="row">
-                 <div class="col-md-8 offset-md-2">
+                 <div class="col-md-16 offset-md-2">
                     <div class="cont">
                        <h3> <span class="multi">Good News </span> <br> We have email notification now</h3>
-                       <p>Please enter your email below, if you want to get the most recent updated post of your exercise interest</p>
+                       <p>Please subscribe, if you want to get the most recent updated post of your exercise interest</p>
                     </div>
-                    <form class="bottom_form">
-                       <input class="enter" placeholder="Enter your email" type="text" name="Enter your email">
-                       <button class="sub_btn">subscribe now</button>
-                    </form>
+                    
+                       <!--- <input class="enter" placeholder="Enter your email" type="text" name="Enter your email"> ---> 
+                    
+                     
+                    <div class="d-flex justify-content-center">
+                       <button class="sub_btn" onclick="location.href='/sign-up'">subscribe now</button>
+                    </div>
                  </div>
               </div>
            </div>
