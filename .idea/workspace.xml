@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c85cffe9-bd41-483b-950b-a2c871df14d6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/website/static/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/website/static/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/templates/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/website/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

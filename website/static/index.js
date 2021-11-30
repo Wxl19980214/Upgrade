@@ -1,7 +1,5 @@
-<<<<<<< Updated upstream
 
-=======
-var qrcode = new QRCode("qrcode",{});
+var qrcode = new QRCode("qrcode");
 
 $(document).ready(function() {
 
@@ -14,7 +12,3 @@ function showQrcode() {
     $("#qrcode").show();
 }
 
-function editPost(){
-
-}
->>>>>>> Stashed changes
