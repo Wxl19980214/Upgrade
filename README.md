@@ -17,6 +17,8 @@ git clone <repo-url>
 pip install -r requirements.txt
 ```
 
+If error occurs, try adding --user
+
 ## Running The App
 
 ```bash
