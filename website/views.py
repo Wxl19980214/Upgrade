@@ -110,8 +110,21 @@ def edit(id):
         post_to_edit.max_participants = request.form.get('max_participants')
         post_to_edit.location = request.form.get('location')
         post_to_edit.description = request.form.get('description')
-        date_edit = request.form.get('date')
-        post_to_edit.date = datetime.strptime(date_edit, '%Y-%m-%dT%H:%M')
+        html_date = request.form.get('date')
+
+        if not request.form.get('sport'):
+            flash('You must enter a sport!', category='error')
+            return render_template("view.html", user=current_user, all_post=Post.query.all())
+        if not request.form.get('location'):
+            flash('You must enter a location!', category='error')
+            return render_template("view.html", user=current_user, all_post=Post.query.all())
+        if html_date:
+            date_edit = datetime.strptime(html_date, '%Y-%m-%dT%H:%M')
+        else:
+            flash('You must enter a time!', category='error')
+            return render_template("view.html", user=current_user, all_post=Post.query.all())
+
+        post_to_edit.date = date_edit
         try:
             db.session.commit()
             flash('Post edited!', category='success')
