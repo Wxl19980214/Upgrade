@@ -250,6 +250,7 @@ a:focus {
 
 .header #qrcont {
     text-align: center;
+    float: right;
 }
 
 .header #qrcont .btn {
@@ -261,7 +262,7 @@ a:focus {
     background: black;
     border-radius: 0;
     transition: .3s;
-    margin-top: 45px;
+    margin-top: 50px;
 }
 
 .header .header-btn .btn:hover {
