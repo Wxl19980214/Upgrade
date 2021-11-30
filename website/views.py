@@ -100,3 +100,24 @@ def plan_event():
         send_email(current_user.email,subject, message)
 
     return render_template("plan.html", user=current_user)
+
+
+@views.route('/post/<int:id>', methods=['POST','GET'])
+def edit(id):
+    post_to_edit = Post.query.get_or_404(id)
+    if request.method == 'POST':
+        post_to_edit.sport = request.form.get('sport')
+        post_to_edit.max_participants = request.form.get('max_participants')
+        post_to_edit.location = request.form.get('location')
+        post_to_edit.description = request.form.get('description')
+        date_edit = request.form.get('date')
+        post_to_edit.date = datetime.strptime(date_edit, '%Y-%m-%dT%H:%M')
+        try:
+            db.session.commit()
+            flash('Post edited!', category='success')
+
+            return render_template("view.html", user=current_user,all_post=Post.query.all())
+        except:
+            return "Something happens when update this post..."
+    else:
+        return render_template('post.html', post_to_edit=post_to_edit, user=current_user)
