@@ -1,6 +1,7 @@
 {% extends "base.html" %} {% block title %} On-going Events {% endblock %}
 
-{% block content %} 
+{% block content %}
+<script src='/static/index.js'></script>
 <h1 align="center">Posts</h1>
 <ul class="list-group list-group-flush" id="posts">
   {% for post in all_post %}
@@ -8,7 +9,7 @@
     Sport: {{ post.sport }} <br>
     Date and time: {{ post.date}} <br>
     Location: {{ post.location}} <br>
-    Desciption: {{ post.description}} <br>
+    Description: {{ post.description}} <br>
     Number of people: {{ post.participant_number }}
     {% if user.id != post.creater_id %}
     <form method="POST">
@@ -22,7 +23,8 @@
     {% endif %}
     {% if user.id == post.creater_id %}
     <div align="center">
-      <button type="submit" class="btn btn-primary">Edit</button>
+<!--      <button type="submit" class="btn btn-primary" href="/post/{{post.id}}">Edit</button>-->
+      <a type="submit" class="btn btn-primary" href="/post/{{post.id}}">Edit</a>
       <button type="submit" class="btn btn-primary">Share</button>
     </div>
 

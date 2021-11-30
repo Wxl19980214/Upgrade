@@ -1,0 +1,69 @@
+{% extends "base.html" %} {% block title %} Edit Posts {% endblock %}
+
+{% block content %}
+<form action="/post/{{post_to_edit.id}}" method="POST">
+    <h3 align="center">Edit Posts</h3>
+    <div class="form-group">
+      <label for="sport">Sport</label>
+      <input
+        type="text"
+        class="form-control"
+        id="sport"
+        name="sport"
+        placeholder="Enter sport"
+        value="{{post_to_edit.sport}}"
+      />
+    </div>
+    <div class="form-group">
+      <label for="description">Maximum Participants</label>
+      <input
+        type="number"
+        class="form-control"
+        id="max_participants"
+        name="max_participants"
+        value="{{post_to_edit.max_participants}}"
+
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="time">Date and time</label>
+      <input
+        type="datetime-local"
+        class="form-control"
+        id="date"
+        name="date"
+        placeholder="Enter date and time"
+        value="{{post_to_edit.date}}"
+      />
+    </div>
+    <div class="form-group">
+        <label for="time">Location</label>
+        <input
+          type="text"
+          class="form-control"
+          id="location"
+          name="location"
+          placeholder="Enter location"
+          value="{{post_to_edit.location}}"
+        />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input
+        type="text"
+        class="form-control"
+        id="description"
+        name="description"
+        placeholder="Briefly describe your post!(optional)"
+        value="{{post_to_edit.description}}"
+      />
+    </div>
+
+
+
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+{% endblock %}
