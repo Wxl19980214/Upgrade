@@ -11,7 +11,14 @@
     Location: {{ post.location}} <br>
     Description: {{ post.description}} <br>
     Number of people: {{ post.participant_number }}
-    {% if user.id != post.creater_id %}
+    {% if not user.is_authenticated%}
+    
+    <div align="center">
+      <button type="submit" class="btn btn-primary">Share</button>
+    </div>
+
+    {% endif %}
+    {% if user.id != post.creater_id and user.is_authenticated %}
     <form method="POST">
       <div align="center">
         <input type="hidden" id="user_id" name="user_id" value={{ user.id }} >
@@ -21,7 +28,7 @@
       </div>
     </form>
     {% endif %}
-    {% if user.id == post.creater_id %}
+    {% if user.id == post.creater_id and user.is_authenticated %}
     <div align="center">
 <!--      <button type="submit" class="btn btn-primary" href="/post/{{post.id}}">Edit</button>-->
       <a type="submit" class="btn btn-primary" href="/post/{{post.id}}">Edit</a>
