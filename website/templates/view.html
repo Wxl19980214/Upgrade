@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block title %} On-going Events {% endblock %}
+
+{% block content %} 
+<h1 style="color: #372647; margin-top: 20px; margin-bottom: 40px;">Posts</h1>
+<ul class="list-group list-group-flush" id="posts">
+  {% for post in all_post %}
+  <li class="list-group-item">
+    Sport: {{ post.sport }} <br>
+    Date and time: {{ post.date}} <br>
+    Location: {{ post.location}} <br>
+    Desciption: {{ post.description}} <br>
+    Number of people: {{ post.participant_number }}
+    {% if not user.is_authenticated%}
+    
+    <div style="color: #372647;">
+      <button type="submit" style=" margin-top: 15px; background-color: #372647; color: #F7CAC9; width: 100px; height: 30px;">Share</button>
+    </div>
+
+    {% endif %}
+    {% if user.id != post.creater_id and user.is_authenticated %}
+    <form method="POST">
+      <div style="color: #372647;">
+        <input type="hidden" id="user_id" name="user_id" value={{ user.id }} >
+        <input type="hidden" id="post_id" name="post_id" value={{ post.id }} >
+        <button type="submit" class="btn btn-primary">Join</button>
+        <button type="submit" class="btn btn-primary">Share</button>
+      </div>
+    </form>
+    {% endif %}
+    {% if user.id == post.creater_id and user.is_authenticated %}
+    <div style="color: #372647;">
+      <button type="submit" class="btn btn-primary">Edit</button>
+      <button type="submit" class="btn btn-primary">Share</button>
+    </div>
+
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

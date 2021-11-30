@@ -1,0 +1,70 @@
+{% extends "base.html" %} {% block title %} Sign-up {% endblock %}
+
+{% block content %} 
+<link href="/static/index.css" rel="stylesheet">
+<class header>
+  <div class="header">
+      <div class="content">
+          <div class="row align-items-center">
+              <div class="col-sm-12 col-md-6">
+                  <div class="header-text">
+                      <h1>Welcome</h1>
+                      <p>
+                          Go to outside and do exercise with new friends
+                      </p>
+                      
+                      <div id="qrcode" style="display:none;"><br>
+                      <br></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</class>
+
+<form method="POST">
+    <h3 style="color: #372647; margin-top: 20px;">Sign Up</h3>
+    <div class="form-group" style="width: 300px;">
+      <label for="email" style="color: #372647;">Email Address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        placeholder="Enter email"
+      />
+    </div>
+    <div class="form-group" style="width: 300px;">
+      <label for="firstName" style="color: #372647;">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        id="firstName"
+        name="firstName"
+        placeholder="Enter first name"
+      />
+    </div>
+    <div class="form-group" style="width: 300px;">
+      <label for="password1" style="color: #372647;">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password1"
+        name="password1"
+        placeholder="Enter password"
+      />
+    </div>
+    <div class="form-group" style="width: 300px;">
+      <label for="password2" style="color: #372647;">Password (Confirm)</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password2"
+        name="password2"
+        placeholder="Confirm password"
+      />
+    </div>
+    <br />
+    <button type="submit" style="background-color: #372647; color: #F7CAC9; width: 100px; height: 30px;">Submit</button>
+  </form>
+{% endblock %}
