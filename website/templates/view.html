@@ -35,14 +35,19 @@
     {% if user.id == post.creater_id and user.is_authenticated %}
     <div align="center">
 <!--      <button type="submit" class="btn btn-primary" href="/post/{{post.id}}">Edit</button>-->
+    <div>
       <a type="submit" class="btn btn-primary" href="/post/{{post.id}}">Edit</a>
-      <button type="submit" class="btn btn-primary" onclick = 'showQrcode2({{post.id}})'>Share</button>
-      <div id="qrcode" style="display:none;"><br>
-        <br></div>
+      
+        <button type="submit" class="btn btn-primary" onclick = 'showQrcode2({{post.id}})'>Share</button>
+        
+      </div>
     </div>
 
     {% endif %}
   </li>
+
   {% endfor %}
 </ul>
+<div id="qrcode" style="display:none; align = middle"><br>
+  <br></div>
 {% endblock %}
