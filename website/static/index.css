@@ -245,6 +245,23 @@ a:focus {
     background: #343148;
     border-radius: 0;
     transition: .3s;
+    margin: 3px;
+}
+
+.header #qrcont {
+    text-align: center;
+}
+
+.header #qrcont .btn {
+    padding: 12px 20px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #F7CAC9;
+    background: black;
+    border-radius: 0;
+    transition: .3s;
+    margin-top: 45px;
 }
 
 .header .header-btn .btn:hover {
