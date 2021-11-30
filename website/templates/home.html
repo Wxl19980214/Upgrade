@@ -196,7 +196,7 @@
     
     <div class="qr_1" v-if = "qr" style="text-align: center;">
         <div class="price-action">
-            <a class="btn" @click="showqr" style="background-color: #372647; color: #F7CAC9; width: 200px; height: 30px;">Do not want to donate now</a>
+            <a class="btn" @click="not_showqr" style="background-color: #372647; color: #F7CAC9; width: 200px; height: 30px;">Do not want to donate now</a>
         </div>
         <img src = "/static/img/IMG_4626.jpg" style="height: 200px; width: 200px;">
         <p>Use Wechat to Scan the QR code above to donate money</p>
@@ -249,8 +249,11 @@
   
     methods: {
       showqr: function() {
-        this.qr = !this.qr;
+        this.qr = true;
         //this.go_back = !this.go_back;
+      },
+      not_showqr: function() {
+        this.qr = false;
       }
     }
 })
