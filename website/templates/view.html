@@ -3,8 +3,9 @@
 {% block content %}
 <script src='/static/index.js'></script>
 <script src='/static/qrcodejs.js'></script>
+<script src='/static/index.css'></script>
 
-<h1 align="center">Posts</h1>
+<h1 style="color: #372647; margin-top: 20px;">Posts</h1>
 <ul class="list-group list-group-flush" id="posts">
   {% for post in all_post %}
   <li class="list-group-item">
@@ -15,18 +16,18 @@
     Number of people: {{ post.participant_number }}
     {% if not user.is_authenticated%}
     
-    <div align="center">
-      <button type="submit" class="btn btn-primary">Share</button>
+    <div>
+      <button type="submit" style="background-color: #372647; color: #F7CAC9; width: 100px; height: 30px;">Share</button>
     </div>
 
     {% endif %}
     {% if user.id != post.creater_id and user.is_authenticated %}
     <form method="POST">
-      <div align="center">
+      <div>
         <input type="hidden" id="user_id" name="user_id" value={{ user.id }} >
         <input type="hidden" id="post_id" name="post_id" value={{ post.id }} >
-        <button type="submit" class="btn btn-primary">Join</button>
-        <button type="button" class="btn btn-primary" onclick = 'showQrcode2({{post.id}})'>Share</button>
+        <button type="submit"  style="background-color: #372647; color: #F7CAC9; width: 100px; height: 30px;">Join</button>
+        <button type="button"  onclick = 'showQrcode2({{post.id}})' style="color: #372647;">Share</button>
         <div id="qrcode" style="display:none;">
           <br>
           <br>
@@ -35,10 +36,10 @@
     </form>
     {% endif %}
     {% if user.id == post.creater_id and user.is_authenticated %}
-    <div align="center">
+    <div>
       <div>
-          <a type="submit" class="btn btn-primary" href="/post/{{post.id}}">Edit</a>
-          <button type="button" class="btn btn-primary" onclick = 'showQrcode2({{post.id}})'>Share</button>  
+          <a id = "submit_b" type="submit" href="/post/{{post.id}}">Edit</a>
+          <button type="button" onclick = 'showQrcode2({{post.id}})' style="background-color: #372647; color: #F7CAC9; width: 100px; height: 30px;">Share</button>  
       </div>
     </div>
     {% endif %}
@@ -49,4 +50,5 @@
 <div id="qrcode" style="display:none; align: middle"><br>
   <br>
 </div>
+
 {% endblock %}
