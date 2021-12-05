@@ -38,7 +38,8 @@
     <div align="center">
       <div>
           <a type="submit" class="btn btn-primary" href="/post/{{post.id}}">Edit</a>
-          <button type="button" class="btn btn-primary" onclick = 'showQrcode2({{post.id}})'>Share</button>  
+          <button type="button" class="btn btn-primary" onclick = 'showQrcode2({{post.id}})'>Share</button>
+          <button type="button" class="btn btn-primary" onclick="deletePost({{ post.id }})">Delete</button>  
       </div>
     </div>
     {% endif %}
