@@ -134,3 +134,13 @@ def edit(id):
             return "Something happens when update this post..."
     else:
         return render_template('post.html', post_to_edit=post_to_edit, user=current_user)
+
+@views.route('/delete-post', methods=['POST'])
+def delete_post():
+    post = json.loads(request.data)
+    postID = post['postID']
+    post = Post.query.get(postID)
+    if post:
+        db.session.delete(post)
+        db.session.commit()
+        return jsonify({})
