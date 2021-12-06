@@ -22,7 +22,7 @@ If error occurs, try adding --user
 ## Running The App
 
 ```bash
-python main.py
+python main.py or python3 main.py
 ```
 
 ## Viewing The App

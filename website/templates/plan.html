@@ -7,7 +7,7 @@
 <form method="POST">
     <h3 style="color: #372647; margin-top: 20px;">Make your event</h3>
     <div class="form-group"  style="width: 300px;">
-      <label for="sport" style="color: #372647;">Sport</label>
+      <label for="sport" style="color: #372647;">Sport*</label>
       <input
         type="text"
         class="form-control"
@@ -29,7 +29,7 @@
     </div>
 
     <div class="form-group" style="width: 300px;">
-      <label for="time" style="color: #372647;">Date and time</label>
+      <label for="time" style="color: #372647;">Date and time*</label>
       <input
         type="datetime-local"
         class="form-control"
@@ -39,7 +39,7 @@
       />
     </div>
     <div class="form-group" style="width: 300px;">
-        <label for="time" style="color: #372647;">Location</label>
+        <label for="time" style="color: #372647;">Location*</label>
         <input
           type="text"
           class="form-control"
@@ -56,11 +56,13 @@
         class="form-control"
         id="description"
         name="description"
-        placeholder="Briefly describe your post!(optional)"
+        placeholder="Briefly describe your post!"
       />
     </div>
 
-
+    <div>
+      <span style="color: red;"> * star means required fields. </span>
+    </div>
 
     <br />
     <button type="submit" style="margin-bottom: 100px; background-color: #372647; color: #F7CAC9; width: 100px; height: 30px;">Submit</button>

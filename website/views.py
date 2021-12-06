@@ -4,7 +4,7 @@ from flask.scaffold import _matching_loader_thinks_module_is_package
 from flask_login import login_required, current_user
 
 from website.email import send_email
-from .models import Post
+from .models import Post, User
 from .models import PostParticipant
 from datetime import datetime
 from . import db
@@ -48,7 +48,7 @@ def view():
             sport = event.sport
             location = event.location
             date = event.date
-            subject = sport + ' Event Post!'
+            subject = 'Register ' + sport + ' Success!'
             message = 'Non-reply: \nYou have successfully registered a ' + sport + ' game at ' + location + ' on ' + date.strftime("%m/%d/%Y, %H:%M:%S")
             send_email(current_user.email,subject, message)
         else:
@@ -125,6 +125,18 @@ def edit(id):
             return render_template("view.html", user=current_user, all_post=Post.query.all())
 
         post_to_edit.date = date_edit
+
+        # notify changes to all participant
+        old_post = Post.query.filter_by(id=id).first()
+        all_participants = PostParticipant.query.filter_by(post_id=post_to_edit.id).all()
+        subject = post_to_edit.sport + ' Event Changed! '
+        message = 'Non-reply:\nThe ' + old_post.sport + ' event scheduled at ' + old_post.date.strftime("%m/%d/%Y, %H:%M:%S") + ' you registered has been modified, be sure to check the latest info on Upgrade. '
+        plist = []
+        for p in all_participants:
+            user = User.query.filter_by(id=p.participant_id).first()
+            plist.append(user.email)
+        send_email(plist,subject,message)
+
         try:
             db.session.commit()
             flash('Post edited!', category='success')
@@ -141,6 +153,14 @@ def delete_post():
     postID = post['postID']
     post = Post.query.get(postID)
     if post:
+        all_participants = PostParticipant.query.filter_by(post_id=postID).all()
+        subject = post.sport + ' Event Cancelled! '
+        message = 'Non-reply:\nThe ' + post.sport + ' event scheduled at ' + post.date.strftime("%m/%d/%Y, %H:%M:%S") + ' you registered has been cancelled, be sure to check the latest info on Upgrade. '
+        plist = []
+        for p in all_participants:
+            user = User.query.filter_by(id=p.participant_id).first()
+            plist.append(user.email)
+        send_email(plist,subject,message)
         db.session.delete(post)
         db.session.commit()
         return jsonify({})
