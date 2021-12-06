@@ -33,7 +33,12 @@
     {% if user.id == post.creater_id and user.is_authenticated %}
     <div align="center">
       <div>
-          <a type="submit" class="btn btn-primary" href="/post/{{post.id}}">Edit</a>
+          <a type="submit" href="/post/{{post.id}}" style="
+          padding: 5px 20px;
+          text-decoration:none;
+          font-weight:bold;
+          border-radius:5px;
+          cursor:pointer;">Edit</a>
           <button type="button" class="btn btn-primary" onclick = 'showQrcode2({{post.id}})'>Share</button>
           <button type="button" class="btn btn-primary" onclick="deletePost({{ post.id }})">Delete</button>  
       </div>
