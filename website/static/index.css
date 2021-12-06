@@ -696,7 +696,7 @@ a:focus {
     text-transform: uppercase;
     border-radius: 35px;
     border: #fff solid 4px;
-    margin-left: -40px;
+    margin-left: 0px;
 }
 
 .sub_btn:hover {
@@ -893,6 +893,7 @@ a:focus {
 }
 
 .container1:hover .overlay {
+    width: 100%;
     opacity: 1;
 }
 
@@ -929,4 +930,21 @@ a:focus {
     content: "";
     clear: both;
     display: table;
+}
+
+
+
+/*view*/
+#submit_b {
+    font: bold 11px Arial;
+    text-decoration: none;
+    background-color: #372647;
+    color: #F7CAC9;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid #372647;
+    border-right: 1px solid #372647;
+    border-bottom: 1px solid #372647;
+    border-left: 1px solid #CCCCCC;
+    width: 100px; 
+    height: 30px;
 }
