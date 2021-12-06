@@ -1,7 +1,7 @@
 var qrcode = new QRCode("qrcode");
 
 $(document).ready(function() {
-
+    
 });
 
 function showQrcode() {
@@ -28,4 +28,15 @@ function deletePost(postID) {
     }).then((_res) => {
         window.location.href = "/view";
     });
+}
+
+function captureInput() {
+    var email = document.forms["input"]["email"].value;
+    var name = document.forms["input"]["firstName"].value;
+    console.log(email);
+    temp = email;
+    console.log(temp)
+    document.getElementById("firstName").value = name;
+    document.getElementById("email").value = email;
+
 }

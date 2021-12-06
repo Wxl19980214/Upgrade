@@ -153,7 +153,7 @@ def delete_post():
     postID = post['postID']
     post = Post.query.get(postID)
     if post:
-        all_participants = PostParticipant.query.filter_by(post_id=post).all()
+        all_participants = PostParticipant.query.filter_by(post_id=postID).all()
         subject = post.sport + ' Event Cancelled! '
         message = 'Non-reply:\nThe ' + post.sport + ' event scheduled at ' + post.date.strftime("%m/%d/%Y, %H:%M:%S") + ' you registered has been cancelled, be sure to check the latest info on Upgrade. '
         plist = []

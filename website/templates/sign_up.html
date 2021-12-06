@@ -31,16 +31,18 @@
         class="form-control"
         id="email"
         name="email"
+        value={{ input_email }}
         placeholder="Enter email"
       />
     </div>
     <div class="form-group" style="width: 300px;">
-      <label for="firstName" style="color: #372647;">Username</label>
+      <label for="firstName" style="color: #372647;">First name</label>
       <input
         type="text"
         class="form-control"
         id="firstName"
         name="firstName"
+        value={{ input_name }}
         placeholder="Enter first name"
       />
     </div>
@@ -51,7 +53,7 @@
         class="form-control"
         id="password1"
         name="password1"
-        placeholder="Enter password"
+        placeholder="Enter key (7 characters or above)"
       />
     </div>
     <div class="form-group" style="width: 300px;">
@@ -61,10 +63,10 @@
         class="form-control"
         id="password2"
         name="password2"
-        placeholder="Confirm password"
+        placeholder="Confirm key"
       />
     </div>
     <br />
-    <button type="submit" style="background-color: #372647; color: #F7CAC9; width: 100px; height: 30px;">Submit</button>
+    <button type="submit" style="background-color: #372647; color: #F7CAC9; width: 100px; height: 30px;" onclick="captureInput()">Submit</button>
   </form>
 {% endblock %}
