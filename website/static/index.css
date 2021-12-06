@@ -696,7 +696,7 @@ a:focus {
     text-transform: uppercase;
     border-radius: 35px;
     border: #fff solid 4px;
-    margin-left: -40px;
+    margin-left: 0px;
 }
 
 .sub_btn:hover {
