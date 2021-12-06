@@ -13,16 +13,16 @@
     Location: {{ post.location}} <br>
     Description: {{ post.description}} <br>
     Number of people: {{ post.participant_number }}
-    {% if not user.is_authenticated%}
     
+    {% if not user.is_authenticated%}
     <div align="center">
       <button type="submit" class="btn btn-primary" onclick = 'showQrcode2({{post.id}})'>Share</button>
     </div>
-
     {% endif %}
+
     {% if user.id != post.creater_id and user.is_authenticated %}
     <form method="POST">
-      <div align="center">
+      <div align="right">
         <input type="hidden" id="user_id" name="user_id" value={{ user.id }} >
         <input type="hidden" id="post_id" name="post_id" value={{ post.id }} >
         <button type="submit" class="btn btn-primary">Join</button>
@@ -31,7 +31,7 @@
     </form>
     {% endif %}
     {% if user.id == post.creater_id and user.is_authenticated %}
-    <div align="center">
+    <div align="right">
       <div>
           <a type="submit" href="/post/{{post.id}}" style="
           padding: 5px 20px;
