@@ -3,7 +3,7 @@
 {% block content %} 
 
 
-<script src='/static/index.js'></script>
+<script src='/static/index.js'></script> 
 <script src='/static/index_2.js'></script>
 <script src='/static/qrcodejs.js'></script>
 <link href="/static/index.css" rel="stylesheet">
@@ -93,7 +93,7 @@
                         <div class="container1">
                             <img src="/static/img/basketball.jpg" alt="Avatar" class="image1" style="width: 360px; height: 200px;">
                             <div class="overlay" style="width: 370px;">
-                              <div class="text">"I really like the experience. Today, we still played basketball togeter."</div>
+                              <div class="text">"I really like the experience. I still play basketball with some people I met here togeter until this day."</div>
                             </div>
                         </div>
                     </div>
@@ -238,10 +238,15 @@
                     
                        <!--- <input class="enter" placeholder="Enter your email" type="text" name="Enter your email"> ---> 
                     
-                     
+                    {% if not user.is_authenticated %} 
                     <div class="d-flex justify-content-center">
                        <button class="sub_btn" onclick="location.href='/sign-up'">subscribe now</button>
                     </div>
+                    {% else %}
+                    <div class="d-flex justify-content-center">
+                        <button class="sub_btn" onclick="location.href='/plan'">start now</button>
+                    </div>
+                    {% endif %}
                  </div>
               </div>
            </div>
