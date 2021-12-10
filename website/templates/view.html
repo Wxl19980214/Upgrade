@@ -14,7 +14,7 @@
     Description: {{ post.description}} <br>
     Number of people: {{ post.participant_number }}
     
-    {% if not user.is_authenticated%}
+    {% if not user.is_authenticated %}
     <div align="center">
       <button type="submit" class="btn btn-primary" onclick = 'showQrcode2({{post.id}})'>Share</button>
     </div>
@@ -25,7 +25,11 @@
       <div align="right">
         <input type="hidden" id="user_id" name="user_id" value={{ user.id }} >
         <input type="hidden" id="post_id" name="post_id" value={{ post.id }} >
-        <button type="submit" class="btn btn-primary">Join</button>
+        {% if post.id not in joined %}
+        <button type="submit" class="btn btn-primary"> Join </button>
+        {% else %}
+        <button type="submit" class="btn btn-secondary" disabled> Join </button>
+        {% endif %}
         <button type="button" class="btn btn-primary" onclick = 'showQrcode2({{post.id}})'>Share</button>
       </div>
     </form>
