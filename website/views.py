@@ -21,6 +21,13 @@ def home():
 @views.route('/view', methods=['GET', 'POST'])
 def view():
     posts = Post.query.all()
+    p_events = []
+    if current_user.is_authenticated:
+        user_id = current_user.id
+        post_participants = PostParticipant.query.filter_by(participant_id=user_id)
+        for one_post in post_participants:
+            p_events.append(one_post.post_id)
+        
     if request.method == 'POST':
         user_id = request.form.get('user_id')
         post_id = request.form.get('post_id')
@@ -30,8 +37,8 @@ def view():
         for pp in pps:
             if str(pp.participant_id) == user_id:
                 flash('You already signed up for this event', category='error')
-                return render_template("view.html", user=current_user, all_post=posts)
-
+                return render_template("view.html", user=current_user, all_post=posts, joined=p_events)
+        
         
     
         post = Post.query.filter_by(id=post_id).first()
@@ -40,6 +47,7 @@ def view():
             db.session.add(new_pp)
             db.session.commit()
             flash('Sign up successful', category='success')
+            p_events.append(int(post_id))
             db.session.query(Post).filter(Post.id == post_id).update(
                 {Post.participant_number: Post.participant_number + 1})
             db.session.commit()
@@ -53,8 +61,8 @@ def view():
             send_email(current_user.email,subject, message)
         else:
             flash("This event is full! Check back later!", category='error')
-
-    return render_template("view.html", user=current_user, all_post=posts)
+    print(p_events)
+    return render_template("view.html", user=current_user, all_post=posts, joined=p_events)
 
 
 @views.route('/plan', methods=['GET', 'POST'])

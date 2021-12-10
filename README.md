@@ -5,6 +5,11 @@ Youtube: https://www.youtube.com/watch?v=dam0GPOAvVI
 What we took from the website: the framework and project structure as well as account authentication system.
 What we implmented: better UI design, modified backend to our purposes, include more features such as email notification and qrCode...
 
+qrCode API taken from d-project
+
+Website: https://jeromeetienne.github.io/jquery-qrcode/
+Github: https://github.com/jeromeetienne/jquery-qrcode
+
 ## Setup & Installtion
 Make sure you have the latest version of Python installed.
 If pip doesn't work, try pip3 instead

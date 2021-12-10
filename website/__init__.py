@@ -41,7 +41,7 @@ def create_app():
 
 
     scheduler = BackgroundScheduler()
-    job = scheduler.add_job(lambda: periodical(app), 'interval', seconds=300)
+    job = scheduler.add_job(lambda: periodical(app), 'interval', seconds=86400)
     scheduler.start()
     
 
