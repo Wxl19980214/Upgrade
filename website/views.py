@@ -64,6 +64,28 @@ def view():
     print(p_events)
     return render_template("view.html", user=current_user, all_post=posts, joined=p_events)
 
+@views.route('/my-events', methods=['GET', 'POST'])
+@login_required
+def view_my_events():
+    user_id = current_user.id
+    posts = []
+    post_participants = PostParticipant.query.filter_by(participant_id=user_id)
+    for one_post in post_participants:
+        if Post.query.filter_by(id=one_post.post_id).first():
+            if Post.query.filter_by(id=one_post.post_id).first() not in posts:
+                posts.append(Post.query.filter_by(id=one_post.post_id).first())
+    
+    my_posts = []
+    joined = []
+    for post in posts:
+        if post: 
+            if post.creater_id == user_id:
+                my_posts.append(post)
+            else:
+                joined.append(post)
+    
+    return render_template("my_events.html", user=current_user, owned_posts=my_posts, joined_posts=joined)
+
 
 @views.route('/plan', methods=['GET', 'POST'])
 @login_required

@@ -1,0 +1,70 @@
+{% extends "base.html" %} {% block title %} My Events {% endblock %}
+
+{% block content %}
+<script src='/static/index.js'></script>
+<script src='/static/qrcodejs.js'></script>
+
+<h1 align="center">My Posts</h1>
+{% if not owned_posts %}
+<div class="container" style="text-align: center;">
+    <h2 align="center"> There's nothing here, why not start your event now?</h2>
+    <a class="btn btn-light" onclick="location.href='/plan'" > <u>Plan Now</u> </a>
+</div>
+{% else %}
+<ul class="list-group list-group-flush" id="posts">
+    {% for post in owned_posts %}
+    <li class="list-group-item">
+      Sport: {{ post.sport }} <br>
+      Date and time: {{ post.date}} <br>
+      Location: {{ post.location}} <br>
+      Description: {{ post.description}} <br>
+      Number of people: {{ post.participant_number }}
+
+      <div align="right">
+        <div>
+            <a type="submit" href="/post/{{post.id}}" style="
+            padding: 5px 20px;
+            text-decoration:none;
+            font-weight:bold;
+            border-radius:5px;
+            cursor:pointer;">Edit</a>
+            <button type="button" class="btn btn-primary" onclick = 'showQrcode3({{post.id}})'>Share</button>
+            <button type="button" class="btn btn-primary" onclick="deletePost({{ post.id }})">Delete</button>  
+        </div>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+{% if not owned_posts %}
+<hr>
+{% endif %}
+
+<h1 align="center">Joined Posts</h1>
+{% if not joined_posts %}
+<div class="container" style="text-align: center;">
+    <h2 align="center"> There's nothing here, why not join an event now?</h2>
+    <a class="btn btn-light" onclick="location.href='/view'" > <u>Join Now</u> </a>
+</div>
+{% else %}
+
+<ul class="list-group list-group-flush" id="posts">
+    {% for post in joined_posts %}
+    <li class="list-group-item">
+      Sport: {{ post.sport }} <br>
+      Date and time: {{ post.date}} <br>
+      Location: {{ post.location}} <br>
+      Description: {{ post.description}} <br>
+      Number of people: {{ post.participant_number }}
+      <div align="right">
+        <button type="button" class="btn btn-primary" onclick = 'showQrcode3({{post.id}})'>Share</button>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+<div id="qrcode" style="display:none; align: middle"><br>
+    <br>
+</div>
+{% endblock %}
