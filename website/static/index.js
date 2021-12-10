@@ -16,6 +16,12 @@ function showQrcode2(psid) {
     $("#qrcode").show();
 }
 
+function showQrcode3(psid) {
+    // alert("Hello! I am an alert box!!");
+    $("#qrcode").hide();
+    qrcode.makeCode("http://127.0.0.1:5000/post/" + psid);
+    $("#qrcode").show();
+}
 
 function closeQrcode() {
     $("#qrcont").hide();
