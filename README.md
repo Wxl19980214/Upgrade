@@ -1,14 +1,22 @@
-A eecs 493 project based on https://github.com/techwithtim/Flask-Web-App-Tutorial
+# Upgrade!!
+A eecs 493 project that brings people together by helping them organize sports events!   
 
-Youtube: https://www.youtube.com/watch?v=dam0GPOAvVI
+## What we took from online sources: 
+Python Flask framework, project structure and account authentication system taken from *Tech with Tim*<br/>
+- Original project Youtube: https://www.youtube.com/watch?v=dam0GPOAvVI 
+- Github: https://github.com/techwithtim/Flask-Web-App-Tutorial
 
-What we took from the website: the framework and project structure as well as account authentication system.
-What we implmented: better UI design, modified backend to our purposes, include more features such as email notification and qrCode...
 
-qrCode API taken from d-project
+qrCode API taken from *d-project*    
+- Website: https://jeromeetienne.github.io/jquery-qrcode/  
+- Github: https://github.com/jeromeetienne/jquery-qrcode  
 
-Website: https://jeromeetienne.github.io/jquery-qrcode/
-Github: https://github.com/jeromeetienne/jquery-qrcode
+
+## What we implmented: 
+- better UI design and better UX experiences 
+- modified backend to our purposes
+- include more features such as email notification and qrCode
+
 
 ## Setup & Installtion
 Make sure you have the latest version of Python installed.
