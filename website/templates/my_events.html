@@ -18,7 +18,15 @@
       Date and time: {{ post.date}} <br>
       Location: {{ post.location}} <br>
       Description: {{ post.description}} <br>
-      Number of people: {{ post.participant_number }}
+      Number of people: {{ post.participant_number }} <br>
+      Participants: 
+      <ul>
+        {% for email in emails[post.id] %}
+        <li>
+            {{email}}
+        </li>
+        {% endfor %}
+      </ul>
 
       <div align="right">
         <div>

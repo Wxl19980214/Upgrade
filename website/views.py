@@ -61,13 +61,14 @@ def view():
             send_email(current_user.email,subject, message)
         else:
             flash("This event is full! Check back later!", category='error')
-    print(p_events)
+    print("pevents ",p_events)
     return render_template("view.html", user=current_user, all_post=posts, joined=p_events)
 
 @views.route('/my-events', methods=['GET', 'POST'])
 @login_required
 def view_my_events():
     user_id = current_user.id
+    all_existing_post = Post.query.all()
     posts = []
     post_participants = PostParticipant.query.filter_by(participant_id=user_id)
     for one_post in post_participants:
@@ -84,8 +85,20 @@ def view_my_events():
             else:
                 joined.append(post)
     
-    return render_template("my_events.html", user=current_user, owned_posts=my_posts, joined_posts=joined)
+    my_event_particpants = {}
+    for post in my_posts:
+        pp_emails = []
+        pps = PostParticipant.query.filter_by(post_id=post.id).all()
+        for one_user in pps:
+            #if one_user.post_id == post.id:
+            pp_emails.append(User.query.filter_by(id=one_user.participant_id).first().email)
+        # my_event_particpants.append((post.id, set(pp_emails)))
+        my_event_particpants[post.id] = set(pp_emails)
+    print("myposts; ",my_posts)
+    print(my_event_particpants)
 
+
+    return render_template("my_events.html", user=current_user, owned_posts=my_posts, joined_posts=joined, emails=my_event_particpants)
 
 @views.route('/plan', methods=['GET', 'POST'])
 @login_required
